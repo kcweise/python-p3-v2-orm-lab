@@ -2,6 +2,7 @@
 from __init__ import CURSOR, CONN
 from department import Department
 
+
 class Employee:
 
     # Dictionary of objects saved to the database.
@@ -187,4 +188,6 @@ class Employee:
 
     def reviews(self):
         """Return list of reviews associated with current employee"""
-        pass
+        from review import Review
+        return[review for review in Review.all.values() if review.employee_id == self.id]
+        
